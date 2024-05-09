@@ -1,9 +1,12 @@
 <?php
+namespace App;
+
 /**
  * class for returning details of player
  */
 
-class Player {
+class Player
+{
   /**
    * id of player
    * 
@@ -30,7 +33,8 @@ class Player {
   private $balls;
 
   // Constructor
-  public function __construct($player_id, $name, $run, $balls) {
+  public function __construct($player_id, $name, $run, $balls)
+  {
     $this->id = $player_id;
     $this->name = $name;
     $this->run = $run;
@@ -38,45 +42,50 @@ class Player {
   }
 
   /**
-  * this function returns the id
-  *
-  * @return int
-  */
-  public function getId() {
+   * this function returns the id
+   *
+   * @return int
+   */
+  public function getId()
+  {
     return $this->id;
   }
   /**
-  * this function returns name
-  *
-  * @return string
-  */
-  public function getName() {
+   * this function returns name
+   *
+   * @return string
+   */
+  public function getName()
+  {
     return $this->name;
   }
-  
+
   /**
-  * function returns run scored
-  *
-  * @return int
-  */
-  public function getrun() {
+   * function returns run scored
+   *
+   * @return int
+   */
+  public function getrun()
+  {
     return $this->run;
   }
   /**
-  * for returning the balls
-  *
-  * @return int
-  */
-  public function getBalls() {
+   * for returning the balls
+   *
+   * @return int
+   */
+  public function getBalls()
+  {
     return $this->balls;
   }
 
   /**
-  * for calculating the strikerate
-  *
-  * @return int
-  */
-  public function getStrikeRate() {
+   * for calculating the strikerate
+   *
+   * @return int
+   */
+  public function getStrikeRate()
+  {
     return ($this->run / $this->balls) * 100;
   }
   /**
@@ -87,7 +96,8 @@ class Player {
    * @param [int] $balls
    * @return void
    */
-  public function updatePlayer($name, $run, $balls) {
+  public function updatePlayer($name, $run, $balls)
+  {
     $this->name = $name;
     $this->run = $run;
     $this->balls = $balls;

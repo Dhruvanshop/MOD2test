@@ -1,22 +1,17 @@
 <?php
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
-require_once 'dashboard.php';
+require __DIR__ . '/vendor/autoload.php';
+$requestUri = $_SERVER['REQUEST_URI'];
+// Define routes and corresponding PHP files
+$str = substr($requestUri, 1);
 
-?>
-<!DOCTYPE html>
-<html lang="en">
+$urlComponents = explode("/", $str);
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Task Index</title>
-</head>
+if (empty($urlComponents[0])) {
+  $urlComponents[0] = "dashboard";
+}
 
-<body>
-
-
-</body>
-<script src="script.js"></script>
-
-</html>
+$fileName = './app/' . $urlComponents[0] . '.php';
+if (!file_exists($fileName)) {
+  echo "Error 404 Found";
+}
+include_once($fileName);
